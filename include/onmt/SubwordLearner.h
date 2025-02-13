@@ -13,7 +13,7 @@ namespace onmt
   class OPENNMTTOKENIZER_EXPORT SubwordLearner
   {
   public:
-    SubwordLearner(bool verbose, const Tokenizer* default_tokenizer = nullptr);
+    explicit SubwordLearner(bool verbose, const Tokenizer* default_tokenizer = nullptr);
     virtual ~SubwordLearner() = default;
     virtual void ingest_token(const Token& token);
     virtual void ingest_token(const std::string& token, const Tokenizer* tokenizer = nullptr);
