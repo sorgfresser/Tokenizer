@@ -56,6 +56,10 @@ namespace onmt
     _vocab[token]++;
   }
 
+  void BPELearner::ingest_token_impl(const std::string &token, const int count) {
+    _vocab[token] += count;
+  }
+
   void BPELearner::ingest(std::istream& is, const Tokenizer* tokenizer)
   {
     if (_dict_input)

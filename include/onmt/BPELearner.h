@@ -16,6 +16,7 @@ namespace onmt
     void learn(std::ostream& os, const char* description = 0, bool verbose = false) override;
   protected:
     void ingest_token_impl(const std::string& token) final;
+    void ingest_token_impl(const std::string& token, const int count) final;
   private:
     void load_from_dictionary(std::istream& is);
     int _symbols;

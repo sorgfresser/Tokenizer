@@ -38,6 +38,7 @@ namespace onmt
                bool verbose = false) override;
   protected:
     void ingest_token_impl(const std::string& token) final;
+    void ingest_token_impl(const std::string& token, const int count) final;
   private:
     std::string _args;
     std::string _input_filename;

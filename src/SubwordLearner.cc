@@ -6,6 +6,7 @@
 
 namespace onmt
 {
+  constexpr int maximum_frequency = std::numeric_limits<int>::max();
 
   SubwordLearner::SubwordLearner(bool verbose, const Tokenizer* default_tokenizer)
     : _verbose(verbose)
@@ -44,6 +45,10 @@ namespace onmt
     std::string line;
     while (std::getline(is, line))
       ingest(line, tokenizer);
+  }
+
+  void SubwordLearner::add_special_token(const std::string &token) {
+    ingest_token_impl(token, maximum_frequency);
   }
 
   void SubwordLearner::learn(const std::string& model_path, const char* description, bool verbose)

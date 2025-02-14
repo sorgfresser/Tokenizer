@@ -67,6 +67,11 @@ namespace onmt
     *_input_stream << token << '\n';
   }
 
+  void SentencePieceLearner::ingest_token_impl(const std::string &token, const int count) {
+    for (int i = 0; i < count; i++)
+      ingest_token_impl(token);
+  }
+
   void SentencePieceLearner::learn(std::ostream& os, const char* description, bool verbose)
   {
     if (_keep_vocab)
